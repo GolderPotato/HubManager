@@ -1,0 +1,7 @@
+main: fr.golderpotato.hubmanager.bungee.BungeePlugin
+version: 0.1
+name: HubManager
+author: GolderPotato
+commands:
+  hub:
+    description: connect to selected hub

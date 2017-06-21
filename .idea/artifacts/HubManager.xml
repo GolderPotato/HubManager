@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="HubManager">
+    <output-path>$USER_HOME$/Desktop/BUNGEE/plugins</output-path>
+    <root id="archive" name="HubManager.jar">
+      <element id="module-output" name="HUBMANAGER" />
+    </root>
+  </artifact>
+</component>
