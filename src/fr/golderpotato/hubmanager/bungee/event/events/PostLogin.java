@@ -7,7 +7,7 @@ import fr.golderpotato.waitingqueue.server.ServerStatus;
 import fr.golderpotato.waitingqueue.server.ServerType;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.chat.TextComponent;
-import net.md_5.bungee.api.event.LoginEvent;
+import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.event.PostLoginEvent;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
@@ -40,8 +40,11 @@ public class PostLogin implements Listener{
                 break;
             }
         }
+        ServerInfo optimalInfo = ProxyServer.getInstance().getServerInfo(optimal.getName());
         if(optimal != base){
-            event.getPlayer().connect(ProxyServer.getInstance().getServerInfo(optimal.getName()));
+            if(!optimalInfo.equals(event.getPlayer().getServer().getInfo())){
+                event.getPlayer().connect(optimalInfo);
+            }
         }else{
             event.getPlayer().disconnect(new TextComponent("§cAucun hub n'a été trouvé! Veuillez rééssayer plus tard"));
         }
